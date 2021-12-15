@@ -1,14 +1,14 @@
 import type { NextPage } from "next";
 import Nav from "components/Nav";
-import Welcome from "components/Welcome";
+import Signup from "components/Signup";
 
-const Home: NextPage = () => {
+const SignUp: NextPage = () => {
   return (
     <div>
       <Nav />
-      <Welcome />
+      <Signup />
     </div>
   );
 };
 
-export default Home;
+export default SignUp;
