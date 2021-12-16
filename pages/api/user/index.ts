@@ -8,8 +8,16 @@ async function userRoute(req: NextApiRequest, res: NextApiResponse) {
 
   switch (method) {
     case "GET":
-      const user = req.session.user;
-      res.send({ user });
+      if (req.session.user) {
+        return res.status(200).json({
+          ...req.session.user,
+          isLoggedIn: true,
+        });
+      }
+      return res.status(200).json({
+        isLoggedIn: false,
+      });
+      break;
 
     default:
       res.setHeader("Allow", ["GET"]);

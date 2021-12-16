@@ -44,9 +44,10 @@ async function loginRoute(req: NextApiRequest, res: NextApiResponse) {
       if (isPasswordCorrect) {
         req.session.user = {
           id: user.id,
+          isLoggedIn: true,
         };
 
-        return res.status(200).send({ ok: true });
+        return res.status(200).send(req.session.user);
       } else {
         return res.status(403).send({ error: errorMessage });
       }

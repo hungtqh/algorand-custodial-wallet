@@ -1,5 +1,6 @@
 import { withIronSessionApiRoute } from "iron-session/next";
 import { NextApiHandler } from "next";
+import { User } from "types/user";
 
 const ironOptions = {
   cookieName: "auth_algowallet",
@@ -11,9 +12,7 @@ const ironOptions = {
 
 declare module "iron-session" {
   interface IronSessionData {
-    user?: {
-      id: number;
-    };
+    user?: User;
   }
 }
 
