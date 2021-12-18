@@ -1,15 +1,22 @@
 import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcrypt";
 
-const saltRound = 5;
+const saltRound = 10;
 
 declare global {
   var prisma: PrismaClient | undefined;
 }
 
-const prisma = global.prisma || new PrismaClient();
+let prisma: PrismaClient;
 
-if (process.env.NODE_ENV === "development") global.prisma = prisma;
+if (process.env.NODE_ENV === "production") {
+  prisma = new PrismaClient();
+} else {
+  if (!global.prisma) {
+    global.prisma = new PrismaClient();
+  }
+  prisma = global.prisma;
+}
 
 const applyMiddleware = async (
   data: any,

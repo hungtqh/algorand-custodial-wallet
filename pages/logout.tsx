@@ -4,7 +4,7 @@ import axios from "axios";
 
 const Logout: NextPage = () => {
   axios.get("/api/user/logout").then(() => {
-    Router.push("/");
+    Router.push("/signin");
   });
 
   return <div></div>;
