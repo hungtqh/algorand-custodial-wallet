@@ -68,6 +68,12 @@ export default function Signin() {
   };
 
   const LoginForm = withFormik<LoginFormPorps, LoginValues>({
+    mapPropsToValues: () => {
+      return {
+        username: "",
+        password: "",
+      };
+    },
     validationSchema: validationSchema,
     handleSubmit: async ({ username, password }, { setStatus }) => {
       try {

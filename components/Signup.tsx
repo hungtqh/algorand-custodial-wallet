@@ -87,6 +87,9 @@ export default function Signup() {
   };
 
   const RegisterForm = withFormik<RegisterFormPorps, RegisterValues>({
+    mapPropsToValues: () => {
+      return { username: "", password: "", password_confirm: "" };
+    },
     validationSchema: validationSchema,
     handleSubmit: async (
       { username, password, password_confirm },
