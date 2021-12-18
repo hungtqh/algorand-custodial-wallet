@@ -11,7 +11,7 @@ export default function Welcome() {
           AlgoWallet is a custodial Algorand Wallet allowing you to freely
           interact with the Algorand blockchain.
         </p>
-        <Link href="/sign-in">
+        <Link href="/signin">
           <a className="btn-sky">Access Now</a>
         </Link>
       </div>

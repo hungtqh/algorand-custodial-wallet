@@ -22,7 +22,7 @@
 
 @layer utilities {
   .btn-sky {
-    @apply py-2 px-4 bg-sky-500 text-white rounded-lg font-semibold hover:bg-sky-600 hover:scale-105 transition-all duration-500;
+    @apply py-2 px-4 bg-sky-500 text-white rounded-lg font-semibold hover:bg-sky-600 hover:scale-105 transition-all duration-500 disabled:bg-gray-300 disabled:cursor-progress;
   }
 
   .required-input {

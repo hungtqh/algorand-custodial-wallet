@@ -1,9 +1,31 @@
+import { FormikProps, Form, Field, withFormik } from "formik";
+import * as Yup from "yup";
 import Link from "next/link";
+import useUser from "lib/useUser";
+import axios from "axios";
+
+interface LoginValues {
+  username: string;
+  password: string;
+}
+
+interface LoginFormPorps {}
 
 export default function Signin() {
-  return (
-    <div className="flex justify-center items-center h-[90vh]">
-      <div className="flex p-5 shadow-lg rounded-lg flex-col justify-around h-[70%] w-[90%] md:w-[60%] lg:w-[35%]">
+  const { user, mutateUser } = useUser({
+    redirectTo: "/",
+    redirectIfFound: true,
+  });
+
+  const validationSchema = Yup.object().shape({
+    username: Yup.string().required("username is required"),
+    password: Yup.string().required("password is required"),
+  });
+
+  const InnerForm = (props: FormikProps<LoginValues>) => {
+    const { touched, errors, isSubmitting, status } = props;
+    return (
+      <Form className="flex p-5 shadow-lg rounded-lg flex-col justify-around h-[70%] w-[90%] md:w-[60%] lg:w-[35%]">
         <h2 className=" text-sky-600 lg:text-center">Welcome to AlgoWallet</h2>
         <p className="text-gray-700 lg:text-center">
           login to view your wallets.
@@ -11,25 +33,60 @@ export default function Signin() {
 
         <div className="lg:w-[60%] lg:mx-auto">
           <span className="required-input">username</span>
-          <input type="text" name="username" />
+          <Field type="text" name="username" />
+          {touched.username && errors.username && (
+            <div className="text-red-400">{errors.username}</div>
+          )}
         </div>
 
         <div className="lg:w-[60%] lg:mx-auto">
           <span className="required-input">password</span>
-          <input type="password" name="password" />
+          <Field type="password" name="password" />
+          {touched.username && errors.username && (
+            <div className="text-red-400">{errors.password}</div>
+          )}
         </div>
 
-        <a className="btn-sky text-center w-[50%] self-center hover:scale-105">
+        <button
+          type="submit"
+          className="btn-sky text-center w-[50%] self-center hover:scale-105"
+          disabled={isSubmitting}
+        >
           sign in
-        </a>
+        </button>
+
+        {status && <p className="text-center text-red-400">{status}</p>}
 
         <p className="text-center">
           don't have an account yet?{" "}
-          <Link href="/sign-up">
+          <Link href="/signup">
             <a className="text-sky-400 hover:underline">register</a>
           </Link>
         </p>
-      </div>
+      </Form>
+    );
+  };
+
+  const LoginForm = withFormik<LoginFormPorps, LoginValues>({
+    validationSchema: validationSchema,
+    handleSubmit: async ({ username, password }, { setStatus }) => {
+      try {
+        const result = await axios.post("/api/user/login", {
+          username,
+          password,
+        });
+        mutateUser(result.data);
+      } catch (error: any) {
+        if (error.response) {
+          setStatus(error.response.data.error);
+        }
+      }
+    },
+  })(InnerForm);
+
+  return (
+    <div className="flex justify-center items-center h-[90vh]">
+      <LoginForm />
     </div>
   );
 }

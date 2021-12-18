@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import prisma from "lib/prisma";
 import Joi from "joi";
+import { withSessionRoute } from "lib/withSession";
 
 const schema = Joi.object({
   username: Joi.string().min(3).max(50).required(),
@@ -14,10 +15,9 @@ type Data = {
   password_confirm: string;
 };
 
-export default async function registrationRoute(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+export default withSessionRoute(registrationRoute);
+
+async function registrationRoute(req: NextApiRequest, res: NextApiResponse) {
   const { method, body } = req;
 
   switch (method) {
@@ -30,7 +30,7 @@ export default async function registrationRoute(
         return res.status(406).send({ error: error.message });
       }
 
-      const user = await prisma.user.findFirst({
+      let user = await prisma.user.findFirst({
         where: { username: data.username },
       });
 
@@ -40,14 +40,21 @@ export default async function registrationRoute(
           .send({ error: "user with this username already exists" });
       }
 
-      await prisma.user.create({
+      user = await prisma.user.create({
         data: {
           username: data.username,
           password: data.password,
         },
       });
 
-      return res.status(200).send({ ok: true });
+      req.session.user = {
+        id: user.id,
+        isLoggedIn: true,
+      };
+
+      await req.session.save();
+
+      return res.status(200).send(req.session.user);
       break;
 
     default:
