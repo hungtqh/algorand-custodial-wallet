@@ -8,11 +8,7 @@ const Home: NextPage = () => {
 
   console.log(user);
 
-  return (
-    <div>
-      <Welcome />
-    </div>
-  );
+  return <Welcome />;
 };
 
 export default Home;

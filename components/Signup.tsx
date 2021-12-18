@@ -101,9 +101,5 @@ export default function Signup() {
     },
   })(InnerForm);
 
-  return (
-    <div className="flex justify-center items-center h-[90vh]">
-      <RegisterForm />
-    </div>
-  );
+  return <RegisterForm />;
 }

@@ -85,9 +85,5 @@ export default function Signin() {
     },
   })(InnerForm);
 
-  return (
-    <div className="flex justify-center items-center h-[90vh]">
-      <LoginForm />
-    </div>
-  );
+  return <LoginForm />;
 }

@@ -3,11 +3,7 @@ import Nav from "components/Nav";
 import Signup from "components/Signup";
 
 const SignUp: NextPage = () => {
-  return (
-    <div>
-      <Signup />
-    </div>
-  );
+  return <Signup />;
 };
 
 export default SignUp;

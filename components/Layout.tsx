@@ -9,7 +9,9 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <>
       <Nav />
-      <main>{children}</main>
+      <main className="flex justify-center items-center h-[90vh]">
+        {children}
+      </main>
     </>
   );
 }
