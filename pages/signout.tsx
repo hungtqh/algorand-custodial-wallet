@@ -7,7 +7,7 @@ const Logout: NextPage = () => {
     Router.push("/signin");
   });
 
-  return <div></div>;
+  return <div>Sign out...</div>;
 };
 
 export default Logout;

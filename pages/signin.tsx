@@ -5,7 +5,6 @@ import Signin from "components/Signin";
 const SignUp: NextPage = () => {
   return (
     <div>
-      <Nav />
       <Signin />
     </div>
   );
