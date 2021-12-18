@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { FormikProps, Form, Field, withFormik } from "formik";
-import * as Yup from "yup";
 import axios from "axios";
 import useUser from "lib/useUser";
+import UserRegister from "schema/UserRegister";
 
 interface RegisterValues {
   username: string;
@@ -14,18 +14,8 @@ interface RegisterFormPorps {}
 
 export default function Signup() {
   const { user, mutateUser } = useUser({
-    redirectTo: "/",
+    redirectTo: "/wallet",
     redirectIfFound: true,
-  });
-
-  const validationSchema = Yup.object().shape({
-    username: Yup.string().required("username is required"),
-    password: Yup.string()
-      .required("password is required")
-      .min(6, "password too short, Must be at least 6 characters"),
-    password_confirm: Yup.string()
-      .oneOf([Yup.ref("password"), null], "Passwords must match")
-      .required("password confirmation is required"),
   });
 
   const InnerForm = (props: FormikProps<RegisterValues>) => {
@@ -90,7 +80,7 @@ export default function Signup() {
     mapPropsToValues: () => {
       return { username: "", password: "", password_confirm: "" };
     },
-    validationSchema: validationSchema,
+    validationSchema: UserRegister,
     handleSubmit: async (
       { username, password, password_confirm },
       { setStatus }

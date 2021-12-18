@@ -1,18 +1,13 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import prisma from "lib/prisma";
-import Joi from "joi";
 import bcrypt from "bcrypt";
 import { withSessionRoute } from "lib/withSession";
+import UserLogin from "schema/UserLogin";
 
 type Data = {
   username: string;
   password: string;
 };
-
-const schema = Joi.object({
-  username: Joi.string().required(),
-  password: Joi.string().required(),
-});
 
 export default withSessionRoute(loginRoute);
 
@@ -24,7 +19,7 @@ async function loginRoute(req: NextApiRequest, res: NextApiResponse) {
       const errorMessage = "username or password is incorrect";
       let data: Data;
       try {
-        data = await schema.validateAsync(body);
+        data = await UserLogin.validate(body);
       } catch (error: any) {
         return res.status(406).send({ error: error.message });
       }

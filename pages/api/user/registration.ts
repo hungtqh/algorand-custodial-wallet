@@ -1,13 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import prisma from "lib/prisma";
-import Joi from "joi";
 import { withSessionRoute } from "lib/withSession";
-
-const schema = Joi.object({
-  username: Joi.string().min(3).max(50).required(),
-  password: Joi.string().required(),
-  password_confirm: Joi.ref("password"),
-}).with("password", "password_confirm");
+import UserRegister from "schema/UserRegister";
 
 type Data = {
   username: string;
@@ -25,7 +19,7 @@ async function registrationRoute(req: NextApiRequest, res: NextApiResponse) {
       let data: Data;
 
       try {
-        data = await schema.validateAsync(body);
+        data = await UserRegister.validate(body);
       } catch (error: any) {
         return res.status(406).send({ error: error.message });
       }

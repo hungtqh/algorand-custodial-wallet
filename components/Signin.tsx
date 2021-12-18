@@ -1,8 +1,8 @@
 import { FormikProps, Form, Field, withFormik } from "formik";
-import * as Yup from "yup";
 import Link from "next/link";
 import useUser from "lib/useUser";
 import axios from "axios";
+import UserLogin from "schema/UserLogin";
 
 interface LoginValues {
   username: string;
@@ -13,13 +13,8 @@ interface LoginFormPorps {}
 
 export default function Signin() {
   const { user, mutateUser } = useUser({
-    redirectTo: "/",
+    redirectTo: "/wallet",
     redirectIfFound: true,
-  });
-
-  const validationSchema = Yup.object().shape({
-    username: Yup.string().required("username is required"),
-    password: Yup.string().required("password is required"),
   });
 
   const InnerForm = (props: FormikProps<LoginValues>) => {
@@ -74,7 +69,7 @@ export default function Signin() {
         password: "",
       };
     },
-    validationSchema: validationSchema,
+    validationSchema: UserLogin,
     handleSubmit: async ({ username, password }, { setStatus }) => {
       try {
         const result = await axios.post("/api/user/login", {
