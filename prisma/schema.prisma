@@ -8,10 +8,23 @@ generator client {
 }
 
 model User {
-    id Int @id @default(autoincrement())
+    id String @id @default(uuid())
     createdAt DateTime @default(now()) @map("created_at")
     username String @unique
     password String
+    wallets Wallet[]
 
     @@map("users")
+}
+
+
+model Wallet{
+    id String @id @default(uuid())
+    address String
+    secret String
+    ownerId String
+
+    owner User @relation(fields: [ownerId], references: [id])
+
+    @@map("wallets")
 }
