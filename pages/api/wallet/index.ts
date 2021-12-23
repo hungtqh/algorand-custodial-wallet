@@ -10,6 +10,7 @@ async function newWalletRoute(req: NextApiRequest, res: NextApiResponse) {
   switch (method) {
     case "GET":
       const user = req.session.user;
+
       if (!user) {
         return res.status(403).end("unauthorized");
       }
