@@ -4,9 +4,12 @@ import { useDispatch } from "react-redux";
 import React, { ReactElement, useEffect } from "react";
 import { loadWallets } from "redux/actions/walletsAction";
 import Layout from "components/dashboard/layout";
+import { useSelector } from "react-redux";
+import { RootState } from "redux/store";
 
 const Page = () => {
   const { user } = useUser({ redirectTo: "/signin" });
+  const { sideActive } = useSelector((state: RootState) => state.navbar);
 
   const dispatch = useDispatch();
 
@@ -20,7 +23,11 @@ const Page = () => {
   }, [user]);
 
   return (
-    <div className="h-[90%] w-[100%] flex flex-col justify-center items-center">
+    <div
+      className={`h-[94vh] w-[100%] ${
+        sideActive ? "ml-[15rem]" : ""
+      } bg-red-400 flex flex-col justify-center items-center transition-[margin-left] duration-500`}
+    >
       <p>wallet transactions</p>
     </div>
   );

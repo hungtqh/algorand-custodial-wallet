@@ -4,10 +4,19 @@ import { useSelector } from "react-redux";
 import { RootState } from "redux/store";
 
 export default function Sidebar() {
-  const { wallets } = useSelector((state: RootState) => state.customer);
+  const { wallets, sideActive } = useSelector((state: RootState) => {
+    return {
+      wallets: state.customer.wallets,
+      sideActive: state.navbar.sideActive,
+    };
+  });
 
   return (
-    <div className="absolute overflow-hidden top-[10vh] left-0 w-[15rem] h-[90vh] shadow-2xl flex flex-col justify-between">
+    <div
+      className={`absolute overflow-hidden top-[6vh]  ${
+        sideActive ? "left-0" : "-left-[20rem]"
+      } w-[15rem] h-[94vh] shadow-2xl flex flex-col justify-between transition-[left] duration-500`}
+    >
       <div>
         {wallets.map((wallet, i: number) => {
           const walletName = `wallet ${i + 1}`;
