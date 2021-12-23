@@ -1,11 +1,9 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
-import SideWallet from "./Wallet";
-import SideAddWallet from "./AddWallet";
+import SideWallet from "./wallet";
+import SideAddWallet from "./addWallet";
 import { useSelector } from "react-redux";
 import { RootState } from "redux/store";
 
-export default function SideBar() {
+export default function Sidebar() {
   const { wallets } = useSelector((state: RootState) => state.customer);
 
   return (

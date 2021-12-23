@@ -11,12 +11,12 @@ export default function Welcome() {
           AlgoWallet is a custodial Algorand Wallet allowing you to freely
           interact with the Algorand blockchain.
         </p>
-        <Link href="/wallet">
+        <Link href="/dashboard">
           <a className="btn-sky">Access Now</a>
         </Link>
       </div>
 
-      <div className="md:w-[50%] hover:scale-105 transition-all duration-500">
+      <div className="md:w-[50%]">
         <Image src={dashboard} />
       </div>
     </div>

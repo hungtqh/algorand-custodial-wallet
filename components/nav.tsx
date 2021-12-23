@@ -13,7 +13,7 @@ export default function Nav() {
         </Link>
 
         {isHome && (
-          <Link href="/wallet">
+          <Link href="/dashboard">
             <a className="hidden md:block btn-sky">access</a>
           </Link>
         )}

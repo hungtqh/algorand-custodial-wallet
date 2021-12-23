@@ -1,13 +1,13 @@
-import type { NextPage } from "next";
-import Router from "next/router";
-import axios from "axios";
+import Layout from "components/layout";
+import { ReactElement } from "react";
+import Signout from "components/user/signout";
 
-const Logout: NextPage = () => {
-  axios.get("/api/user/logout").then(() => {
-    Router.push("/signin");
-  });
-
-  return <div>Sign out...</div>;
+const Page = () => {
+  return <Signout />;
 };
 
-export default Logout;
+Page.getLayout = function getLayout(page: ReactElement) {
+  return <Layout>{page}</Layout>;
+};
+
+export default Page;

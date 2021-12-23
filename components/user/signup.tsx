@@ -14,7 +14,7 @@ interface RegisterFormPorps {}
 
 export default function Signup() {
   const { user, mutateUser } = useUser({
-    redirectTo: "/wallet",
+    redirectTo: "/dashboard",
     redirectIfFound: true,
   });
 
@@ -93,7 +93,7 @@ export default function Signup() {
         });
 
         mutateUser(result.data);
-      } catch (error: any) {
+      } catch (error) {
         if (error.response) {
           setStatus(error.response.data.error);
         }

@@ -1,15 +1,19 @@
 import { NextPage } from "next";
 import useUser from "lib/useUser";
 import { useDispatch } from "react-redux";
-import { useEffect } from "react";
+import React, { ReactElement, useEffect } from "react";
 import { loadWallets } from "redux/actions/walletsAction";
+import Layout from "components/dashboard/layout";
 
-const Wallet: NextPage = () => {
+const Page = () => {
   const { user } = useUser({ redirectTo: "/signin" });
 
   const dispatch = useDispatch();
 
   useEffect(() => {
+    console.log("here");
+    console.log("user:", user);
+
     if (user?.isLoggedIn) {
       dispatch(loadWallets());
     }
@@ -22,4 +26,8 @@ const Wallet: NextPage = () => {
   );
 };
 
-export default Wallet;
+Page.getLayout = function getLayout(page: ReactElement) {
+  return <Layout>{page}</Layout>;
+};
+
+export default Page;

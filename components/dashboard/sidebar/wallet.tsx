@@ -6,7 +6,7 @@ type SideWalletProps = {
   balance: number;
 };
 
-export default function SideWallet({ walletName, balance }: SideWalletProps) {
+export default function Wallet({ walletName, balance }: SideWalletProps) {
   return (
     <div className="h-[4rem] bg-sky-200 flex items-center justify-between mb-1 cursor-pointer">
       <div className="flex items-center ml-2">

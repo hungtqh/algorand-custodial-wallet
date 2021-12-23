@@ -1,9 +1,13 @@
-import type { NextPage } from "next";
-import Nav from "components/Nav";
-import Signup from "components/Signup";
+import Signup from "components/user/signup";
+import { ReactElement } from "react";
+import Layout from "components/layout";
 
-const SignUp: NextPage = () => {
+const Page = () => {
   return <Signup />;
 };
 
-export default SignUp;
+Page.getLayout = function getLayout(page: ReactElement) {
+  return <Layout>{page}</Layout>;
+};
+
+export default Page;

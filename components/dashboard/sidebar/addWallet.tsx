@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 
-export default function SideAddWallet() {
+export default function AddWallet() {
   return (
     <Link href="/add-wallet">
       <div className=" flex items-center w-[100%] h-[4rem] cursor-pointer hover:bg-blue-200">

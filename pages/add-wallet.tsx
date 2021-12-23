@@ -1,15 +1,20 @@
-import type { NextPage } from "next";
 import useUser from "lib/useUser";
-import NewWallet from "components/NewWallet";
+import AddWallet from "components/dashboard/action-boxes/addWallet";
+import { ReactElement } from "react";
+import Layout from "components/dashboard/layout";
 
-const Wallet: NextPage = () => {
+const Page = () => {
   const { user } = useUser({ redirectTo: "/signin" });
 
   return (
     <div className="h-[90%] w-[90%] flex gap-4 flex-wrap">
-      <NewWallet />
+      <AddWallet />
     </div>
   );
 };
 
-export default Wallet;
+Page.getLayout = function getLayout(page: ReactElement) {
+  return <Layout>{page}</Layout>;
+};
+
+export default Page;

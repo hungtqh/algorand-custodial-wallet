@@ -1,14 +1,13 @@
-import type { NextPage } from "next";
-import Nav from "components/Nav";
-import Welcome from "components/Welcome";
-import useUser from "lib/useUser";
+import Welcome from "components/welcome";
+import { ReactElement } from "react";
+import Layout from "components/layout";
 
-const Home: NextPage = () => {
-  const { user } = useUser();
-
-  console.log(user);
-
+const HomePage = () => {
   return <Welcome />;
 };
 
-export default Home;
+HomePage.getLayout = function getLayout(page: ReactElement) {
+  return <Layout>{page}</Layout>;
+};
+
+export default HomePage;
