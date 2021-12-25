@@ -5,7 +5,7 @@ type State = {
 };
 
 const initState: State = {
-  sideActive: false,
+  sideActive: true,
 };
 
 const navbarReducer = (state = initState, action: AnyAction) => {

@@ -29,6 +29,7 @@ async function walletInfoRoute(req: NextApiRequest, res: NextApiResponse) {
       const balance = await algorandGetAccountBalance(wallet.address);
 
       const response = {
+        id: wallet.id,
         address: wallet.address,
         name: wallet.name,
         balance: Number(balance),
