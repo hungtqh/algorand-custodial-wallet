@@ -1,6 +1,7 @@
 import { AnyAction } from "redux";
 
 export type Wallet = {
+  id?: string;
   address?: string;
   name?: string;
   balance?: string;
@@ -8,6 +9,7 @@ export type Wallet = {
 
 type Payload = {
   wallets?: Wallet[];
+  currentWalletId?: string;
   currentWallet?: Wallet | {};
 };
 
@@ -29,12 +31,17 @@ const walletReducer = (state = initState, action: AnyAction) => {
       return {
         ...state,
         wallets: action.payload.wallets,
+        currentWallet: action.payload.currentWallet,
       };
 
     case "SET_CURRENT":
+      const currentWallet = state.wallets?.find(
+        (wallet) => wallet.id === action.payload.currentWalletId
+      );
+
       return {
         ...state,
-        currentWallet: action.payload.currentWallet,
+        currentWallet: currentWallet,
       };
     default:
       return {

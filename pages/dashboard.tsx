@@ -14,9 +14,6 @@ const Page = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log("here");
-    console.log("user:", user);
-
     if (user?.isLoggedIn) {
       dispatch(loadWallets());
     }
@@ -26,7 +23,7 @@ const Page = () => {
     <div
       className={`h-[94vh] w-[100%] ${
         sideActive ? "ml-[15rem]" : ""
-      } bg-red-400 flex flex-col justify-center items-center transition-[margin-left] duration-500`}
+      } flex flex-col justify-center items-center transition-[margin-left] duration-500`}
     >
       <p>wallet transactions</p>
     </div>

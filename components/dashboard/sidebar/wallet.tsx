@@ -34,7 +34,7 @@ export default function Wallet({ walletName, balance, id }: SideWalletProps) {
             isCurrent ? "border-sky-700" : ""
           }`}
         >
-          {walletName[0] + " " + walletName[walletName.length - 1]}
+          {/* {walletName[0] + " " + walletName[walletName.length - 1]} */}
         </div>
 
         <div className="ml-2">
