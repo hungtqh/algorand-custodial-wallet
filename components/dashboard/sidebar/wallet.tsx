@@ -43,9 +43,11 @@ export default function Wallet({ walletName, balance, id }: SideWalletProps) {
         </div>
       </div>
 
-      <div className="text-gray-400 mr-2 w-5 h-5 rounded-full hover:bg-red-400 flex items-center justify-center hover:text-white">
-        <FontAwesomeIcon icon={faEllipsisV} />
-      </div>
+      {isCurrent && (
+        <div className="text-gray-400 mr-2 w-5 h-5 rounded-full hover:bg-red-400 flex items-center justify-center hover:text-white">
+          <FontAwesomeIcon icon={faEllipsisV} />
+        </div>
+      )}
     </div>
   );
 }

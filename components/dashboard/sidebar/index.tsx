@@ -1,7 +1,8 @@
 import Wallet from "./wallet";
-import SideAddWallet from "./addWallet";
+import AddWallet from "./addWallet";
 import { useSelector } from "react-redux";
 import { RootState } from "redux/store";
+import Settings from "./settings";
 
 export default function Sidebar() {
   const { wallets, sideActive } = useSelector((state: RootState) => {
@@ -31,8 +32,10 @@ export default function Sidebar() {
         })}
       </div>
 
-      <div className="h-[40%]">
-        <SideAddWallet />
+      <div className="h-[45%]">
+        <AddWallet />
+
+        <Settings />
       </div>
     </div>
   );

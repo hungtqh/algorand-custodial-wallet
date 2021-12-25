@@ -21,7 +21,9 @@ export default function Nav() {
   };
 
   const handleCopyAddress = () => {
-    navigator.clipboard.writeText(currentWallet.address);
+    if (currentWallet) {
+      navigator.clipboard.writeText(currentWallet.address);
+    }
   };
 
   const handleQrCode = () => {
@@ -48,10 +50,10 @@ export default function Nav() {
       <div className="bg-gray-100 rounded-md px-2 h-[80%] hidden md:flex md:w-[65%] lg:w-[60%] justify-between items-center">
         <div className="text-sm">
           <p className="text-sky-400">
-            <FontAwesomeIcon icon={faWallet} /> {currentWallet.name}
+            <FontAwesomeIcon icon={faWallet} /> {currentWallet?.name}
           </p>
           <p className="text-sky-500 w-[30vw] truncate">
-            {currentWallet.address}
+            {currentWallet?.address}
           </p>
         </div>
 
@@ -71,7 +73,7 @@ export default function Nav() {
 
         <div className=" w-[30%] flex justify-between">
           <p>Balance</p>
-          <p>{currentWallet.balance}</p>
+          <p>{currentWallet?.balance}</p>
         </div>
       </div>
 
