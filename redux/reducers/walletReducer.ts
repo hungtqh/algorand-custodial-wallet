@@ -1,7 +1,9 @@
 import { AnyAction } from "redux";
 
 export type Wallet = {
-  address: string;
+  address?: string;
+  name?: string;
+  balance?: string;
 };
 
 type Payload = {

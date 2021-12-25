@@ -1,14 +1,26 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsisV } from "@fortawesome/free-solid-svg-icons";
+import { useDispatch } from "react-redux";
+import { setCurrentWallet } from "redux/actions/walletsAction";
 
 type SideWalletProps = {
   walletName: string;
   balance: number;
+  id: string;
 };
 
-export default function Wallet({ walletName, balance }: SideWalletProps) {
+export default function Wallet({ walletName, balance, id }: SideWalletProps) {
+  const dispatch = useDispatch();
+
+  const handleSetCurrent = () => {
+    dispatch(setCurrentWallet(id));
+  };
+
   return (
-    <div className="h-[4rem] bg-sky-200 flex items-center justify-between mb-1 cursor-pointer">
+    <div
+      onClick={handleSetCurrent}
+      className="h-[4rem] bg-sky-200 flex items-center justify-between mb-1 cursor-pointer"
+    >
       <div className="flex items-center ml-2">
         <div className="w-12 h-12 border-2 rounded-full flex items-center justify-center">
           {walletName[0] + " " + walletName[walletName.length - 1]}

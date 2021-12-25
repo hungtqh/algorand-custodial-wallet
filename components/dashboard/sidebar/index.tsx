@@ -1,4 +1,4 @@
-import SideWallet from "./wallet";
+import Wallet from "./wallet";
 import SideAddWallet from "./addWallet";
 import { useSelector } from "react-redux";
 import { RootState } from "redux/store";
@@ -18,9 +18,16 @@ export default function Sidebar() {
       } w-[15rem] h-[94vh] shadow-2xl flex flex-col justify-between transition-[left] duration-500`}
     >
       <div>
-        {wallets.map((wallet, i: number) => {
+        {wallets.map((wallet: any, i: number) => {
           const walletName = `wallet ${i + 1}`;
-          return <SideWallet walletName={walletName} balance={0} />;
+          return (
+            <Wallet
+              key={wallet.id}
+              id={wallet.id}
+              walletName={wallet.name}
+              balance={wallet.balance}
+            />
+          );
         })}
       </div>
 

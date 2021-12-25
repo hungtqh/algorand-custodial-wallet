@@ -6,10 +6,12 @@ import {
   faQrcode,
 } from "@fortawesome/free-solid-svg-icons";
 import AlgoLogo from "components/icons/algo";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "redux/store";
 
 export default function Nav() {
   const dispatch = useDispatch();
+  const { currentWallet } = useSelector((state: RootState) => state.customer);
 
   const handleSideBarActive = () => {
     dispatch({ type: "TOGGLE_BURGER" });
@@ -34,11 +36,9 @@ export default function Nav() {
       <div className="bg-gray-100 rounded-md px-2 h-[80%] w-[50%] flex justify-between items-center">
         <div className="text-sm">
           <p className="text-sky-400">
-            <FontAwesomeIcon icon={faWallet} /> Wallet #2
+            <FontAwesomeIcon icon={faWallet} /> {currentWallet.name}
           </p>
-          <p className="text-sky-500">
-            ZRAAH4S4FEWNJO2J42DAXXO3K25FOEONGH5HYKCAX45CUC5WE6ROXQIOBA
-          </p>
+          <p className="text-sky-500">{currentWallet.address}</p>
         </div>
 
         <div className="text-gray-400 flex gap-2">
@@ -50,7 +50,7 @@ export default function Nav() {
 
         <div className=" w-[30%] flex justify-between">
           <p>Balance</p>
-          <p>0</p>
+          <p>{currentWallet.balance}</p>
         </div>
       </div>
 

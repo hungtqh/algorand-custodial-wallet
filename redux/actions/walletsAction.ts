@@ -16,3 +16,14 @@ export const loadWallets = () => async (dispatch: Dispatch<Action>) => {
     payload: { wallets },
   });
 };
+
+export const setCurrentWallet = (id: string) => async (
+  dispatch: Dispatch<Action>
+) => {
+  let currentWallet = (await axios.get(`/api/wallet/${id}`)).data;
+
+  dispatch({
+    type: "SET_CURRENT",
+    payload: { currentWallet },
+  });
+};

@@ -12,15 +12,22 @@ async function newWalletRoute(req: NextApiRequest, res: NextApiResponse) {
     case "POST":
       const user = req.session.user;
       if (!user) {
-        return res.status(403).end("unauthorized");
+        return res.status(401).end("unauthorized");
       }
       const wallet = await generateAlgoWallet();
+
+      const walletCount = await prisma.wallet.count({
+        where: { ownerId: user.id },
+      });
+
+      const name = `wallet #${walletCount + 1}`;
 
       await prisma.wallet.create({
         data: {
           address: wallet.address,
           secret: wallet.secret,
           ownerId: user.id,
+          name,
         },
       });
 
