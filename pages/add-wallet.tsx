@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "redux/store";
 import { useDispatch } from "react-redux";
 import { loadWallets } from "redux/actions/walletsAction";
+import BackButton from "components/dashboard/action-boxes/backButton";
 
 const Page = () => {
   const { user } = useUser({ redirectTo: "/signin" });
@@ -24,8 +25,9 @@ const Page = () => {
     <div
       className={`h-[94vh] w-[100%] ${
         sideActive ? "ml-[15rem]" : ""
-      } transition-[margin-left] duration-500 flex gap-1 flex-wrap justify-center items-center`}
+      } transition-[margin-left] duration-500 flex gap-1 flex-wrap justify-center items-center relative`}
     >
+      <BackButton />
       <AddWallet />
     </div>
   );

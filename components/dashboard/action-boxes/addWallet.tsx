@@ -4,10 +4,11 @@ import axios from "axios";
 import Router from "next/router";
 
 export default function AddWallet() {
+  //TODO: set current wallet to new wallet
   const handleCreateNewWallet = () => {
     axios
       .post("/api/wallet/new")
-      .then(() => {
+      .then((res) => {
         Router.push("/dashboard");
       })
       .catch(() => {});

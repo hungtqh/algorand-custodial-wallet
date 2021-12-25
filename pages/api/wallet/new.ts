@@ -22,7 +22,7 @@ async function newWalletRoute(req: NextApiRequest, res: NextApiResponse) {
 
       const name = `wallet #${walletCount + 1}`;
 
-      await prisma.wallet.create({
+      const databaseWallet = await prisma.wallet.create({
         data: {
           address: wallet.address,
           secret: wallet.secret,
@@ -31,7 +31,7 @@ async function newWalletRoute(req: NextApiRequest, res: NextApiResponse) {
         },
       });
 
-      return res.status(200).send({ ok: true });
+      return res.status(200).send({ id: databaseWallet.id });
 
       break;
     default:
