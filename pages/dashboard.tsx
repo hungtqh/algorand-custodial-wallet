@@ -6,6 +6,7 @@ import { loadWallets } from "redux/actions/walletsAction";
 import Layout from "components/dashboard/layout";
 import { useSelector } from "react-redux";
 import { RootState } from "redux/store";
+import Exchange from "components/dashboard/exchange";
 
 const Page = () => {
   const { user } = useUser({ redirectTo: "/signin" });
@@ -23,9 +24,9 @@ const Page = () => {
     <div
       className={`h-[94vh] w-[100%] ${
         sideActive ? "ml-[15rem]" : ""
-      } flex flex-col justify-center items-center transition-[margin-left] duration-500`}
+      } flex flex-col  transition-[margin-left] duration-500`}
     >
-      <p>wallet transactions</p>
+      <Exchange />
     </div>
   );
 };
