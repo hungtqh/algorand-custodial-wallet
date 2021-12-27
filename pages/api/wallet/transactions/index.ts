@@ -58,9 +58,13 @@ async function transactionRoute(req: NextApiRequest, res: NextApiResponse) {
         return res.status(200).json(result.data);
       } catch (error) {
         console.error(error);
-        const data = error.response.data;
-        return res.status(data.statusCode).json({ error: data.message });
+        if (error.response) {
+          const data = error.response.data;
+          return res.status(data.statusCode).json({ error: data.message });
+        }
       }
+
+      break;
 
     default:
       res.setHeader("Allow", ["POST"]);

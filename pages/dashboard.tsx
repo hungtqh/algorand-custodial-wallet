@@ -7,6 +7,7 @@ import Layout from "components/dashboard/layout";
 import { useSelector } from "react-redux";
 import { RootState } from "redux/store";
 import Exchange from "components/dashboard/exchange";
+import Transactions from "components/dashboard/transactions";
 
 const Page = () => {
   const { user } = useUser({ redirectTo: "/signin" });
@@ -27,6 +28,7 @@ const Page = () => {
       } flex flex-col  transition-[margin-left] duration-500`}
     >
       <Exchange />
+      <Transactions />
     </div>
   );
 };

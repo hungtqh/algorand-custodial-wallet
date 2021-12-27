@@ -101,7 +101,7 @@ export default function Send({ setSendActive }: Props) {
     validationSchema: SendAlgoSchema,
     handleSubmit: async ({ address, amount }, { setStatus }) => {
       try {
-        await axios.post("/api/wallet/transaction", {
+        await axios.post("/api/wallet/transactions", {
           from: currentWallet.address,
           to: address,
           amount,
