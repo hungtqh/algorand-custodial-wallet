@@ -13,9 +13,10 @@ export type Transaction = {
 
 type Payload = {
   transactions: Transaction[];
+  isLoading: boolean;
 };
 
-type ActionTypes = "FETCH_TRANSACTIONS";
+type ActionTypes = "FETCH_TRANSACTIONS" | "LOADING_TRANSACTIONS";
 
 export type Action = {
   type: ActionTypes;
@@ -24,6 +25,7 @@ export type Action = {
 
 const initState: Payload = {
   transactions: [],
+  isLoading: false,
 };
 
 const transactionReducer = (state = initState, action: AnyAction) => {
@@ -32,7 +34,15 @@ const transactionReducer = (state = initState, action: AnyAction) => {
       return {
         ...state,
         transactions: action.payload.transactions,
+        isLoading: false,
       };
+
+    case "LOADING_TRANSACTIONS":
+      return {
+        ...state,
+        isLoading: true,
+      };
+
     default:
       return {
         ...state,
