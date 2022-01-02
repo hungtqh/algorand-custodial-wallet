@@ -24,6 +24,9 @@ async function walletsRoute(req: NextApiRequest, res: NextApiResponse) {
           id: true,
           secret: false,
         },
+        orderBy: {
+          createdAt: "desc",
+        },
       });
 
       //TODO: add proper types

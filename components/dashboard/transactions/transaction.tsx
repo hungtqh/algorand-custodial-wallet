@@ -23,7 +23,7 @@ export default function Transaction({
 
   const [detailActive, setDetailActive] = useState(false);
 
-  const isInCome = currentWallet.address != sender;
+  const isInCome = currentWallet?.address != sender;
   const d = new Date(0);
   if (time) {
     d.setUTCSeconds(time);

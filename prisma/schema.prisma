@@ -24,6 +24,7 @@ model Wallet{
     address String
     secret String
     ownerId String
+    createdAt DateTime @default(now()) @map("created_at")
 
     owner User @relation(fields: [ownerId], references: [id])
 
