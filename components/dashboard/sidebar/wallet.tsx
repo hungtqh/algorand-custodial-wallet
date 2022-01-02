@@ -1,5 +1,3 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEllipsisV } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { setCurrentWallet } from "redux/actions/walletsAction";
 import { RootState } from "redux/store";
@@ -42,12 +40,6 @@ export default function Wallet({ walletName, balance, id }: SideWalletProps) {
           <span>{balance}$</span>
         </div>
       </div>
-
-      {isCurrent && (
-        <div className="text-gray-400 mr-2 w-5 h-5 rounded-full hover:bg-red-400 flex items-center justify-center hover:text-white">
-          <FontAwesomeIcon icon={faEllipsisV} />
-        </div>
-      )}
     </div>
   );
 }

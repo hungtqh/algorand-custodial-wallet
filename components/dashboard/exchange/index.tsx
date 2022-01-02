@@ -1,6 +1,9 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEllipsisV, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import Send from "../pop-ups/send";
 import Receive from "../pop-ups/receive";
+import WalletSetting from "../pop-ups/walletSetting";
 
 export default function Exchange() {
   const [sendActive, setSendActive] = useState(false);
@@ -11,6 +14,12 @@ export default function Exchange() {
       {sendActive && <Send setSendActive={setSendActive} />}
       {receiveActive && <Receive setReceiveActive={setReceiveActive} />}
       <div className=" w-full h-[12vh] flex items-center justify-around">
+        <div className="relative">
+          <button className="cursor-pointer peer  bg-gray-100 w-6 h-6 rounded-full hover:bg-gray-800 hover:text-white">
+            <FontAwesomeIcon icon={faEllipsisV} />
+          </button>
+          <WalletSetting />
+        </div>
         <h3>Transactions</h3>
         <div className="flex gap-4">
           <button
