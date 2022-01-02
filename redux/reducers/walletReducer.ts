@@ -36,10 +36,12 @@ export type Action = {
 const walletReducer = (state = initState, action: AnyAction) => {
   switch (action.type) {
     case "FETCH_WALLETS": {
+      const currentWallet = action.payload.currentWallet || state.currentWallet;
+
       return {
         ...state,
         wallets: action.payload.wallets,
-        currentWallet: action.payload.currentWallet,
+        currentWallet,
         isWalletsLoading: false,
       };
 

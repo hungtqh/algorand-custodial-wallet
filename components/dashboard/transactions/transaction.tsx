@@ -43,7 +43,7 @@ export default function Transaction({
         </div>
 
         <p>algo</p>
-        <p className={`${isInCome ? "text-green-700" : "text-red-700"}`}>
+        <p className={`${isInCome ? "text-green-700" : "text-red-700"} w-[2%]`}>
           {isInCome ? "+" : "-"}
           {amount! / 10 ** 6}
         </p>

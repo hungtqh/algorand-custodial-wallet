@@ -3,6 +3,8 @@ import { RootState } from "redux/store";
 import { FormikProps, Form, Field, withFormik } from "formik";
 import axios from "axios";
 import * as Yup from "yup";
+import { useDispatch } from "react-redux";
+import { loadWallets } from "redux/actions/walletsAction";
 
 //TODO: check if address is valid
 //TODO: check max amount
@@ -19,6 +21,7 @@ type SendAlgoProps = {
 type FormProps = {};
 
 export default function Send({ setSendActive }: Props) {
+  const dispatch = useDispatch();
   const { currentWallet } = useSelector((state: RootState) => state.customer);
 
   const SendAlgoSchema = Yup.object().shape({
@@ -106,6 +109,7 @@ export default function Send({ setSendActive }: Props) {
           to: address,
           amount,
         });
+        dispatch(loadWallets(false));
         setSendActive(false);
       } catch (error) {
         if (error.response) {

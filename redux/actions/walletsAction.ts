@@ -3,9 +3,11 @@ import { Dispatch } from "redux";
 import { Action } from "redux/reducers/walletReducer";
 import { Wallet } from "redux/reducers/walletReducer";
 
-export const loadWallets = () => async (dispatch: Dispatch<Action>) => {
+export const loadWallets = (setCurrent: boolean = true) => async (
+  dispatch: Dispatch<Action>
+) => {
   let wallets: Wallet[] = [];
-  let currentWallet: Wallet = {};
+  let currentWallet: Wallet | undefined = undefined;
 
   dispatch({
     type: "WALLETS_LOADING",
@@ -13,7 +15,9 @@ export const loadWallets = () => async (dispatch: Dispatch<Action>) => {
 
   try {
     wallets = (await axios.get("/api/wallet")).data;
-    currentWallet = wallets[0];
+    if (setCurrent) {
+      currentWallet = wallets[0];
+    }
   } catch (error) {
     console.error(error);
   }
