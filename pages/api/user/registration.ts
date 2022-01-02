@@ -2,6 +2,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import prisma from "lib/prisma";
 import { withSessionRoute } from "lib/withSession";
 import UserRegister from "schema/UserRegister";
+import bcrypt from 'bcrypt'
 
 type Data = {
   username: string;
@@ -34,10 +35,12 @@ async function registrationRoute(req: NextApiRequest, res: NextApiResponse) {
           .send({ error: "user with this username already exists" });
       }
 
+      const password = await bcrypt.hash(data.password,10)
+
       user = await prisma.user.create({
         data: {
           username: data.username,
-          password: data.password,
+          password,
         },
       });
 
