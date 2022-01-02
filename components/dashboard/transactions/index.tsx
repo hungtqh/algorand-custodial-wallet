@@ -4,6 +4,7 @@ import { RootState } from "redux/store";
 import { loadTransactions } from "redux/actions/transactionsAction";
 import { Transaction as transactionType } from "redux/reducers/transactionReducer";
 import Transaction from "./transaction";
+import Loading from "components/loading";
 
 export default function Transactions() {
   const { currentWallet, transactions, isLoadingTransactions } = useSelector(
@@ -18,7 +19,7 @@ export default function Transactions() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (currentWallet.address) {
+    if (currentWallet?.address) {
       dispatch({ type: "LOADING_TRANSACTIONS" });
       dispatch(loadTransactions(currentWallet.address));
     }
@@ -26,7 +27,7 @@ export default function Transactions() {
 
   return (
     <div className="overflow-y-scroll h-[100%]">
-      {!isLoadingTransactions &&
+      {!isLoadingTransactions ? (
         transactions.map((t: transactionType) => (
           <Transaction
             id={t.id}
@@ -36,7 +37,10 @@ export default function Transactions() {
             receiver={t["payment-transaction"]?.receiver}
             fee={t.fee}
           />
-        ))}
+        ))
+      ) : (
+        <Loading />
+      )}
     </div>
   );
 }

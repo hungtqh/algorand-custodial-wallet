@@ -80,7 +80,7 @@ async function walletInfoRoute(req: NextApiRequest, res: NextApiResponse) {
       }
 
       const newName: string = body.name;
-      await prisma.wallet.update({
+      const rest = await prisma.wallet.update({
         where: {
           id: wallet.id,
         },

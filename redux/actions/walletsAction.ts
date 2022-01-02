@@ -7,6 +7,10 @@ export const loadWallets = () => async (dispatch: Dispatch<Action>) => {
   let wallets: Wallet[] = [];
   let currentWallet: Wallet = {};
 
+  dispatch({
+    type: "WALLETS_LOADING",
+  });
+
   try {
     wallets = (await axios.get("/api/wallet")).data;
     currentWallet = wallets[0];
@@ -35,7 +39,7 @@ export const changewalletName = (id: string, newName: string) => async (
 ) => {
   try {
     await axios.put(`/api/wallet/${id}`, {
-      data: newName,
+      name: newName,
     });
 
     dispatch({

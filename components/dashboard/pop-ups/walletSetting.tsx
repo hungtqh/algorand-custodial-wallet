@@ -14,7 +14,7 @@ export default function WalletSetting() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    setNewName(currentWallet.name);
+    setNewName(currentWallet?.name);
   }, [currentWallet]);
 
   const handleRemoveWallet = () => {

@@ -8,10 +8,16 @@ import { useSelector } from "react-redux";
 import { RootState } from "redux/store";
 import Exchange from "components/dashboard/exchange";
 import Transactions from "components/dashboard/transactions";
+import Loading from "components/loading";
 
 const Page = () => {
   const { user } = useUser({ redirectTo: "/signin" });
-  const { sideActive } = useSelector((state: RootState) => state.navbar);
+  const { sideActive, isWalletsLoading } = useSelector((state: RootState) => {
+    return {
+      sideActive: state.navbar.sideActive,
+      isWalletsLoading: state.customer.isWalletsLoading,
+    };
+  });
 
   const dispatch = useDispatch();
 
@@ -27,8 +33,14 @@ const Page = () => {
         sideActive ? "ml-[15rem]" : ""
       } flex flex-col  transition-[margin-left] duration-500`}
     >
-      <Exchange />
-      <Transactions />
+      {isWalletsLoading ? (
+        <Loading fullScreen={true} />
+      ) : (
+        <>
+          <Exchange />
+          <Transactions />
+        </>
+      )}
     </div>
   );
 };
