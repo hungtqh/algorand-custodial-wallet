@@ -29,3 +29,18 @@ export const setCurrentWallet = (id: string) => async (
     payload: { currentWalletId },
   });
 };
+
+export const changewalletName = (id: string, newName: string) => async (
+  dispatch: Dispatch<Action>
+) => {
+  try {
+    await axios.put(`/api/wallet/${id}`, {
+      data: newName,
+    });
+
+    dispatch({
+      type: "CHANGE_WALLET_NAME",
+      payload: { id, newName },
+    });
+  } catch (error) {}
+};

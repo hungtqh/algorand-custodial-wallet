@@ -16,7 +16,7 @@ export default function Sidebar() {
     <div
       className={`absolute overflow-hidden top-[6vh]  ${
         sideActive ? "left-0" : "-left-[20rem]"
-      } w-[15rem] h-[94vh] shadow-2xl flex flex-col justify-between transition-[left] duration-500`}
+      } bg-white w-[15rem] h-[94vh] shadow-2xl flex flex-col justify-between transition-[left] duration-500`}
     >
       <div className="h-[50%] overflow-y-scroll">
         {wallets.map((wallet: any, i: number) => {

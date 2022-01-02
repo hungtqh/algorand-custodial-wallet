@@ -3,13 +3,19 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { useSelector } from "react-redux";
 import { RootState } from "redux/store";
 import { useDispatch } from "react-redux";
-import { loadWallets } from "redux/actions/walletsAction";
+import { loadWallets, changewalletName } from "redux/actions/walletsAction";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import React from "react";
 
 export default function WalletSetting() {
   const { currentWallet } = useSelector((state: RootState) => state.customer);
+  const [newName, setNewName] = useState<string>("");
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    setNewName(currentWallet.name);
+  }, [currentWallet]);
 
   const handleRemoveWallet = () => {
     axios.delete(`/api/wallet/${currentWallet.id}`).then(() => {
@@ -17,8 +23,14 @@ export default function WalletSetting() {
     });
   };
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const target = event.target as HTMLInputElement;
+    setNewName(target.value);
+  };
+
+  //TODO: set global status
+  const handleNameSaved = () => {
+    dispatch(changewalletName(currentWallet.id, newName));
   };
 
   //TODO: check name unqiue
@@ -29,13 +41,18 @@ export default function WalletSetting() {
     >
       <div className="flex justify-between px-2">
         <h5 className="text-gray-500">Rename Wallet</h5>
-        <button className="bg-gray-100 text-gray-700 px-1 text-sm">Save</button>
+        <button
+          onClick={handleNameSaved}
+          className="bg-gray-100 text-gray-700 px-1 text-sm"
+        >
+          Save
+        </button>
       </div>
       <input
         className="h-10 my-2 w-[90%] mx-auto"
         type="text"
-        value={currentWallet.name}
-        onChange={handleChange}
+        value={newName}
+        onChange={handleNameChange}
       />
       <hr />
       <button
