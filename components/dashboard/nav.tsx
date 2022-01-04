@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "redux/store";
 import QrCodeScan from "./pop-ups/qrcodeScan";
 import { useState } from "react";
+import { pushNotification } from "redux/actions/notificationsAction";
 
 export default function Nav() {
   const dispatch = useDispatch();
@@ -23,6 +24,7 @@ export default function Nav() {
   const handleCopyAddress = () => {
     if (currentWallet) {
       navigator.clipboard.writeText(currentWallet.address);
+      dispatch(pushNotification("info", "address copied to clipboard"));
     }
   };
 

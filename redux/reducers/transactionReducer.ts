@@ -13,7 +13,7 @@ export type Transaction = {
 
 type Payload = {
   transactions: Transaction[];
-  isLoading: boolean;
+  isLoading?: boolean;
 };
 
 type ActionTypes = "FETCH_TRANSACTIONS" | "LOADING_TRANSACTIONS";
