@@ -20,7 +20,7 @@ export default function Notifications() {
   }, [notifications]);
 
   return (
-    <div className="absolute top-0 right-0 overflow-hidden h-full w-[20%] flex flex-col items-center justify-end">
+    <div className="absolute pointer-events-none top-0 right-0 overflow-hidden h-full w-[20%] flex flex-col items-center justify-end">
       {showedAlerts.map((alert, index) => {
         return (
           <Notification key={index} type={alert.type} message={alert.message} />

@@ -32,7 +32,7 @@ export default function Exchange() {
           </button>
           <WalletSetting />
         </div>
-        <div className="flex items-center justify-between w-[10%]">
+        <div className="flex items-center gap-2 ">
           <h3>Transactions</h3>
           <FontAwesomeIcon
             onClick={syncTransactions}
@@ -54,7 +54,7 @@ export default function Exchange() {
             onClick={() => {
               setReceiveActive(true);
             }}
-            className="bg-gray-100 text-blue-600 py-3 w-40 rounded-md"
+            className="bg-gray-100 text-blue-600 py-3  w-40 rounded-md"
           >
             Receive
           </button>

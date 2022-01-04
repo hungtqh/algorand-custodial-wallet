@@ -47,7 +47,7 @@ export default function Send({ setSendActive }: Props) {
 
     return (
       <Form className="bg-white w-[30rem] h-[30rem] rounded-3xl flex flex-col justify-around items-center">
-        <h3>Receive</h3>
+        <h3>Send</h3>
 
         <div className="w-[95%]">
           <p className="mb-2">Amount</p>
