@@ -17,8 +17,6 @@ export default function Exchange() {
 
   const syncTransactions = () => {
     dispatch(loadWallets(false));
-    dispatch({ type: "LOADING_TRANSACTIONS" });
-    dispatch(loadTransactions(currentWallet.address));
   };
 
   return (

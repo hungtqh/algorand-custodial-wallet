@@ -28,8 +28,9 @@ export default function Transactions() {
   return (
     <div className="overflow-y-scroll h-[100%]">
       {!isLoadingTransactions ? (
-        transactions.map((t: transactionType) => (
+        transactions.map((t: transactionType, index: number) => (
           <Transaction
+            key={index}
             id={t.id}
             amount={t["payment-transaction"]?.amount}
             sender={t.sender}

@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { setCurrentWallet } from "redux/actions/walletsAction";
 import { RootState } from "redux/store";
+import algo from "components/icons/algo";
 
 type SideWalletProps = {
   walletName: string;
@@ -37,7 +38,10 @@ export default function Wallet({ walletName, balance, id }: SideWalletProps) {
 
         <div className="ml-2">
           <h4>{walletName}</h4>
-          <span>{balance}$</span>
+          <span className="flex items-center gap-2">
+            {algo({ width: 10, height: 10 })}
+            {balance}
+          </span>
         </div>
       </div>
     </div>

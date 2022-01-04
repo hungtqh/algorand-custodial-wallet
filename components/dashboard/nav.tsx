@@ -11,6 +11,7 @@ import { RootState } from "redux/store";
 import QrCodeScan from "./pop-ups/qrcodeScan";
 import { useState } from "react";
 import { pushNotification } from "redux/actions/notificationsAction";
+import algo from "components/icons/algo";
 
 export default function Nav() {
   const dispatch = useDispatch();
@@ -75,7 +76,10 @@ export default function Nav() {
 
         <div className=" w-[30%] flex justify-between">
           <p>Balance</p>
-          <p>{currentWallet?.balance}</p>
+          <p className="flex items-center gap-2">
+            <span>{algo({ width: 10, height: 10 })}</span>
+            <span>{currentWallet?.balance}</span>
+          </p>
         </div>
       </div>
 

@@ -2,29 +2,33 @@ import { AnyAction } from "redux";
 
 export type NotificationType = "success" | "error" | "info";
 
-type Notification = {
+export type Notification = {
   type: NotificationType;
   message: string;
 };
 
-export type Payload = Notification[];
+export type Payload = {
+  notifications: Notification[];
+};
 
-const initState: Payload = [];
+const initState: Payload = {
+  notifications: [],
+};
 
 const notificationReducer = (state = initState, action: AnyAction) => {
   switch (action.type) {
     case "PUSH": {
-      state.push(action.payload);
-      return [...state];
+      const notifications = [...state.notifications, action.payload];
+      return { ...state, notifications };
 
       break;
     }
-    case "SHIFT": {
-      state.shift();
-      return [...state];
-    }
+    // case "SHIFT": {
+    //   state.shift();
+    //   return [...state];
+    // }
     default:
-      return [...state];
+      return { ...state };
   }
 };
 
