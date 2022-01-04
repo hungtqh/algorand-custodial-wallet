@@ -1,13 +1,13 @@
 import { AnyAction } from "redux";
 
-export type NotificationType = "success" | "failed" | "info";
+export type NotificationType = "success" | "error" | "info";
 
 type Notification = {
   type: NotificationType;
   message: string;
 };
 
-type Payload = Notification[];
+export type Payload = Notification[];
 
 const initState: Payload = [];
 
@@ -18,6 +18,10 @@ const notificationReducer = (state = initState, action: AnyAction) => {
       return [...state];
 
       break;
+    }
+    case "SHIFT": {
+      state.shift();
+      return [...state];
     }
     default:
       return [...state];
