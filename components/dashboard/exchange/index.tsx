@@ -1,13 +1,25 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEllipsisV, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faEllipsisV, faSync } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import Send from "../pop-ups/send";
 import Receive from "../pop-ups/receive";
 import WalletSetting from "../pop-ups/walletSetting";
+import { useDispatch, useSelector } from "react-redux";
+import { loadTransactions } from "redux/actions/transactionsAction";
+import { loadWallets } from "redux/actions/walletsAction";
+import { RootState } from "redux/store";
 
 export default function Exchange() {
   const [sendActive, setSendActive] = useState(false);
   const [receiveActive, setReceiveActive] = useState(false);
+  const { currentWallet } = useSelector((state: RootState) => state.customer);
+  const dispatch = useDispatch();
+
+  const syncTransactions = () => {
+    dispatch(loadWallets(false));
+    dispatch({ type: "LOADING_TRANSACTIONS" });
+    dispatch(loadTransactions(currentWallet.address));
+  };
 
   return (
     <div>
@@ -20,7 +32,14 @@ export default function Exchange() {
           </button>
           <WalletSetting />
         </div>
-        <h3>Transactions</h3>
+        <div className="flex items-center justify-between w-[10%]">
+          <h3>Transactions</h3>
+          <FontAwesomeIcon
+            onClick={syncTransactions}
+            className="cursor-pointer"
+            icon={faSync}
+          />
+        </div>
         <div className="flex gap-4">
           <button
             onClick={() => {

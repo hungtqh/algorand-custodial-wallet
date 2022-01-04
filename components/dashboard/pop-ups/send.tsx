@@ -5,6 +5,8 @@ import axios from "axios";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 import { loadWallets } from "redux/actions/walletsAction";
+import { loadTransactions } from "redux/actions/transactionsAction";
+import { pushNotification } from "redux/actions/notificationsAction";
 
 //TODO: check if address is valid
 //TODO: check max amount
@@ -111,6 +113,9 @@ export default function Send({ setSendActive }: Props) {
         });
         dispatch(loadWallets(false));
         setSendActive(false);
+        dispatch({ type: "LOADING_TRANSACTIONS" });
+        dispatch(loadTransactions(currentWallet.address));
+        dispatch(pushNotification("success", "sent successfully"));
       } catch (error) {
         if (error.response) {
           setStatus(error.response.data.error);
