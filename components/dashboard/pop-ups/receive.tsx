@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "redux/store";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCopy } from "@fortawesome/free-solid-svg-icons";
+import algo from "components/icons/algo";
 
 type Props = {
   setReceiveActive: (state: boolean) => void;
@@ -52,7 +53,10 @@ export default function QrCodeScan({ setReceiveActive }: Props) {
           <div className="border-2 border-sky-300 rounded-md flex h-14">
             <div className="w-[40%] bg-sky-100 mr-2 flex justify-around items-center">
               <p>balance</p>
-              <p>{currentWallet.balance}</p>
+              <p className="flex items-center gap-1">
+                {algo({ width: 10, height: 10 })}
+                {currentWallet.balance}
+              </p>{" "}
             </div>
             <input
               className="border-none p-0 w-[70%] focus:ring-0"

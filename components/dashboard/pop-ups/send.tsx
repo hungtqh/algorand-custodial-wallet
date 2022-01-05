@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { loadWallets } from "redux/actions/walletsAction";
 import { loadTransactions } from "redux/actions/transactionsAction";
 import { pushNotification } from "redux/actions/notificationsAction";
+import algo from "components/icons/algo";
 
 //TODO: check if address is valid
 //TODO: check max amount
@@ -54,7 +55,10 @@ export default function Send({ setSendActive }: Props) {
           <div className="border-2 border-sky-300 rounded-md flex h-14">
             <div className="w-[40%] bg-sky-100 mr-2 flex justify-around items-center">
               <p>balance</p>
-              <p>{currentWallet.balance}</p>
+              <p className="flex items-center gap-1">
+                {algo({ width: 10, height: 10 })}
+                {currentWallet.balance}
+              </p>
             </div>
             <Field
               className="border-none p-0 w-[70%] focus:ring-0"
