@@ -14,7 +14,7 @@ export default function Sidebar() {
 
   return (
     <div
-      className={`absolute overflow-hidden top-[6vh]  ${
+      className={`absolute z-30 overflow-hidden top-[6vh]  ${
         sideActive ? "left-0" : "-left-[20rem]"
       } bg-white w-[15rem] h-[94vh] shadow-2xl flex flex-col justify-between transition-[left] duration-500`}
     >

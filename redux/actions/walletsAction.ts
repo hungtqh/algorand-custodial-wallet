@@ -1,7 +1,8 @@
 import axios from "axios";
-import { Dispatch } from "redux";
+import { AnyAction, Dispatch } from "redux";
 import { Action } from "redux/reducers/walletReducer";
 import { Wallet } from "redux/reducers/walletReducer";
+import { pushNotification } from "redux/actions/notificationsAction";
 
 export const loadWallets = (setCurrent: boolean = true) => async (
   dispatch: Dispatch<Action>
@@ -39,7 +40,7 @@ export const setCurrentWallet = (id: string) => async (
 };
 
 export const changewalletName = (id: string, newName: string) => async (
-  dispatch: Dispatch<Action>
+  dispatch: Dispatch<AnyAction>
 ) => {
   try {
     await axios.put(`/api/wallet/${id}`, {
@@ -50,5 +51,23 @@ export const changewalletName = (id: string, newName: string) => async (
       type: "CHANGE_WALLET_NAME",
       payload: { id, newName },
     });
-  } catch (error) {}
+
+    dispatch({
+      type: "PUSH",
+      payload: {
+        type: "success",
+
+        message: "wallet name changed",
+      },
+    });
+  } catch (error) {
+    dispatch({
+      type: "PUSH",
+      payload: {
+        type: "error",
+
+        message: "failed to change wallet name",
+      },
+    });
+  }
 };

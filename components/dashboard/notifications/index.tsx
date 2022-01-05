@@ -24,7 +24,7 @@ export default function Notifications() {
   }, [notifications]);
 
   return show ? (
-    <div className="absolute bottom-5 right-5 w-[20%]">
+    <div className="absolute bottom-5 right-5 w-[30%] flex justify-end">
       <Notification
         setShow={setShow}
         type={alert.type}

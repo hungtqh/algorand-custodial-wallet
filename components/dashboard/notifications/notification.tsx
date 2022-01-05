@@ -32,7 +32,7 @@ export default function Notification({ type, message, setShow }: Props) {
   };
 
   return (
-    <div className="relative my-5 w-[80%] h-[5rem] rounded-lg bg-gray-100 flex items-center justify-around">
+    <div className="relative my-5 w-[100%] lg:w-[70%] h-[5rem] rounded-lg bg-gray-100 flex items-center justify-around">
       <div
         onClick={handleClose}
         className="absolute top-1 right-3 cursor-pointer"

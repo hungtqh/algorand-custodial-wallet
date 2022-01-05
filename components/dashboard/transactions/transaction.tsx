@@ -37,8 +37,8 @@ export default function Transaction({
         }}
         className="flex items-center justify-around border-b-[0.1rem]  border-gray-400  h-20 w-full cursor-pointer"
       >
-        <div>
-          <p className="text-sm">{isInCome ? sender : receiver}</p>
+        <div className="w-[35%]">
+          <p className="text-sm truncate ...">{isInCome ? sender : receiver}</p>
           <span className="text-gray-600">{d.toLocaleString()}</span>
         </div>
 
@@ -51,10 +51,10 @@ export default function Transaction({
 
       <div
         className={`${
-          detailActive ? "h-20" : "h-0"
-        } flex  items-center justify-center gap-10 w-full bg-sky-100 transition-[height] duration-300 overflow-hidden`}
+          detailActive ? "h-40 lg:h-20" : "h-0"
+        } flex flex-col  lg:flex-row items-center justify-center lg:gap-10 w-full bg-sky-100 transition-[height] duration-300 overflow-hidden`}
       >
-        <div className="flex flex-col  h-[100%] justify-around">
+        <div className="flex flex-col  h-[100%] justify-around w-[80%] lg:w-min">
           <p className="text-sm">
             <span className="text-sky-900 font-bold mr-2">TxId:</span>
             {id}
@@ -65,7 +65,7 @@ export default function Transaction({
           </p>
         </div>
 
-        <div className="flex flex-col  h-[100%] justify-around">
+        <div className="flex flex-col  h-[100%] justify-around w-[80%] lg:w-min">
           <p className="text-sm">
             <span className="text-sky-900 font-bold mr-2">Sender:</span>
             {sender}
