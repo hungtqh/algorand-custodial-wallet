@@ -6,7 +6,7 @@ import Layout from "components/dashboard/layout";
 import { useSelector } from "react-redux";
 import { RootState } from "redux/store";
 import BackButton from "components/dashboard/action-boxes/backButton";
-import SignOut from "components/dashboard/settings/signout";
+import ChangePassword from "components/dashboard/settings/changePassword";
 
 const Page = () => {
   const { user } = useUser({ redirectTo: "/signin" });
@@ -38,7 +38,9 @@ const Page = () => {
         <h4>Settings</h4>
       </div>
 
-      <div className="flex justify-center items-start mt-[10rem] h-[90vh]"></div>
+      <div className="flex justify-center items-start mt-[5rem] h-[70vh]">
+        <ChangePassword />
+      </div>
     </div>
   );
 };

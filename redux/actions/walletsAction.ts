@@ -21,10 +21,10 @@ export const loadWallets = (setCurrent: boolean = true) => async (
     }
   } catch (error) {
     console.error(error);
-    dispatch(
-      pushNotification("error", "failed to load wallets.please reload page")
-    );
+    console.log("hererererererere");
+    dispatch(pushNotification("error", "failed to load wallets"));
   }
+
   dispatch({
     type: "FETCH_WALLETS",
     payload: { wallets, currentWallet },
