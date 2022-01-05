@@ -29,7 +29,7 @@ export default function Transactions() {
 
   return (
     <div className="overflow-y-scroll h-[100%]">
-      {!isLoadingTransactions && currentWalletLoaded ? (
+      {!isLoadingTransactions ? (
         transactions.map((t: transactionType, index: number) => (
           <Transaction
             key={index}

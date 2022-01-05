@@ -17,11 +17,10 @@ export const loadWallets = (setCurrent: boolean = true) => async (
   try {
     wallets = (await axios.get("/api/wallet")).data;
     if (setCurrent) {
-      currentWallet = wallets[0];
+      currentWallet = wallets[0] || {};
     }
   } catch (error) {
     console.error(error);
-    console.log("hererererererere");
     dispatch(pushNotification("error", "failed to load wallets"));
   }
 

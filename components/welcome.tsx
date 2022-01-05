@@ -16,7 +16,7 @@ export default function Welcome() {
         </Link>
       </div>
 
-      <div className="md:w-[50%]">
+      <div className="md:w-[50%] shadow-lg border-2 rounded-lg overflow-hidden">
         <Image src={dashboard} />
       </div>
     </div>

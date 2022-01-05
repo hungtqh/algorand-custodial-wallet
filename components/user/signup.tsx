@@ -14,7 +14,7 @@ interface RegisterFormPorps {}
 
 export default function Signup() {
   const { user, mutateUser } = useUser({
-    redirectTo: "/dashboard",
+    redirectTo: "/add-wallet",
     redirectIfFound: true,
   });
 

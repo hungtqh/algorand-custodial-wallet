@@ -1,8 +1,15 @@
 import Layout from "components/layout";
-import { ReactElement } from "react";
+import { ReactElement, useEffect } from "react";
 import Signout from "components/user/signout";
+import { useDispatch } from "react-redux";
 
 const Page = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch({ type: "USER_LOGOUT" });
+  }, []);
+
   return <Signout />;
 };
 
