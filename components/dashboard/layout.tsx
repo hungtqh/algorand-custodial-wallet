@@ -12,7 +12,7 @@ export default function Layout({ children }: LayoutProps) {
     <>
       <Nav />
       <Notifications />
-      <main className="flex justify-center items-center">
+      <main className="flex justify-center items-center overflow-x-hidden">
         <Sidebar />
 
         {children}

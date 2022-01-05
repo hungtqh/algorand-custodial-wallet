@@ -15,10 +15,10 @@ export default function Sidebar() {
   return (
     <div
       className={`absolute z-30 overflow-hidden top-[6vh]  ${
-        sideActive ? "left-0" : "-left-[20rem]"
-      } bg-white w-[15rem] h-[94vh] shadow-2xl flex flex-col justify-between transition-[left] duration-500`}
+        sideActive ? "left-0" : "-left-[20rem] w-0"
+      } bg-white w-full md:w-[15rem] h-[94vh] shadow-2xl flex flex-col items-center justify-between transition-all duration-500`}
     >
-      <div className="h-[50%] overflow-y-scroll">
+      <div className="h-[50%] w-full overflow-y-scroll">
         {wallets.map((wallet: any, i: number) => {
           const walletName = `wallet ${i + 1}`;
           return (
@@ -32,7 +32,7 @@ export default function Sidebar() {
         })}
       </div>
 
-      <div className="h-[45%]">
+      <div className="h-[45%] w-full">
         <AddWallet />
 
         <Settings />

@@ -52,27 +52,27 @@ export default function Transaction({
       <div
         className={`${
           detailActive ? "h-40 lg:h-20" : "h-0"
-        } flex flex-col  lg:flex-row items-center justify-center lg:gap-10 w-full bg-sky-100 transition-[height] duration-300 overflow-hidden`}
+        } flex flex-col  lg:flex-row   items-center justify-center lg:gap-10 w-full  bg-sky-100 transition-[height] duration-300 overflow-hidden`}
       >
-        <div className="flex flex-col  h-[100%] justify-around w-[80%] lg:w-min">
-          <p className="text-sm">
+        <div className="flex flex-col h-[100%] justify-around w-[92%] md:w-[80%] lg:w-min">
+          <p className="text-xs md:text-sm flex flex-col md:flex-row">
             <span className="text-sky-900 font-bold mr-2">TxId:</span>
-            {id}
+            <span>{id}</span>
           </p>
-          <p className="text-sm">
+          <p className="text-xs md:text-sm flex flex-col md:flex-row">
             <span className="text-sky-900 font-bold mr-2">Fee:</span>
-            {fee! / 10 ** 6}
+            <span>{fee! / 10 ** 6}</span>
           </p>
         </div>
 
-        <div className="flex flex-col  h-[100%] justify-around w-[80%] lg:w-min">
-          <p className="text-sm">
+        <div className="flex flex-col  h-[100%] justify-around w-[92%] md:w-[80%] lg:w-min">
+          <p className="text-xs md:text-sm flex flex-col md:flex-row">
             <span className="text-sky-900 font-bold mr-2">Sender:</span>
-            {sender}
+            <span>{sender}</span>
           </p>
-          <p className="text-sm">
+          <p className="text-xs md:text-sm flex flex-col md:flex-row">
             <span className="text-sky-900 font-bold mr-2">Receiver:</span>
-            {receiver}
+            <span>{receiver}</span>
           </p>
         </div>
       </div>

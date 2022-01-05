@@ -5,9 +5,9 @@ import Send from "../pop-ups/send";
 import Receive from "../pop-ups/receive";
 import WalletSetting from "../pop-ups/walletSetting";
 import { useDispatch, useSelector } from "react-redux";
-import { loadTransactions } from "redux/actions/transactionsAction";
 import { loadWallets } from "redux/actions/walletsAction";
 import { RootState } from "redux/store";
+import Wallet from "components/dashboard/nav/wallet";
 
 export default function Exchange() {
   const [sendActive, setSendActive] = useState(false);
@@ -23,7 +23,8 @@ export default function Exchange() {
     <div>
       {sendActive && <Send setSendActive={setSendActive} />}
       {receiveActive && <Receive setReceiveActive={setReceiveActive} />}
-      <div className=" w-full h-[12vh] flex items-center justify-around">
+      <div className=" w-full h-[30vh] md:h-[12vh] flex flex-col md:flex-row items-center justify-around mb-2">
+        <Wallet styles="w-[90%] my-4 md:hidden" />
         <div className="relative">
           <button className="cursor-pointer peer  bg-gray-100 w-6 h-6 rounded-full hover:bg-gray-800 hover:text-white">
             <FontAwesomeIcon icon={faEllipsisV} />
