@@ -21,6 +21,9 @@ export const loadWallets = (setCurrent: boolean = true) => async (
     }
   } catch (error) {
     console.error(error);
+    dispatch(
+      pushNotification("error", "failed to load wallets.please reload page")
+    );
   }
   dispatch({
     type: "FETCH_WALLETS",
@@ -52,22 +55,9 @@ export const changewalletName = (id: string, newName: string) => async (
       payload: { id, newName },
     });
 
-    dispatch({
-      type: "PUSH",
-      payload: {
-        type: "success",
-
-        message: "wallet name changed",
-      },
-    });
+    dispatch(pushNotification("success", "wallet name changed"));
   } catch (error) {
-    dispatch({
-      type: "PUSH",
-      payload: {
-        type: "error",
-
-        message: "failed to change wallet name",
-      },
-    });
+    console.error(error);
+    dispatch(pushNotification("error", "failed to change wallet name"));
   }
 };

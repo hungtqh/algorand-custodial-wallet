@@ -2,6 +2,7 @@ import { Dispatch } from "react";
 import { Action } from "redux/reducers/transactionReducer";
 import { Transaction } from "redux/reducers/transactionReducer";
 import axios from "axios";
+import { pushNotification } from "redux/actions/notificationsAction";
 
 export const loadTransactions = (walletAddress: string) => async (
   dispatch: Dispatch<Action>
@@ -12,12 +13,13 @@ export const loadTransactions = (walletAddress: string) => async (
     transactions = (
       await axios.get(`/api/wallet/transactions/${walletAddress}`)
     ).data.transactions;
+
+    dispatch({
+      type: "FETCH_TRANSACTIONS",
+      payload: { transactions },
+    });
   } catch (error) {
     console.error(error);
+    dispatch(pushNotification("error", "failed to load transactions"));
   }
-
-  dispatch({
-    type: "FETCH_TRANSACTIONS",
-    payload: { transactions },
-  });
 };
