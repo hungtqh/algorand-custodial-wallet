@@ -14,7 +14,7 @@ export default function WalletSetting() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    setNewName(currentWallet?.name);
+    setNewName(currentWallet.name);
   }, [currentWallet]);
 
   const handleRemoveWallet = () => {
@@ -28,13 +28,14 @@ export default function WalletSetting() {
     setNewName(target.value);
   };
 
-  //TODO: set global status
   const handleNameSaved = () => {
     dispatch(changewalletName(currentWallet.id, newName));
   };
 
   //TODO: check name unqiue
-  return (
+  const currentWalletLoaded = Object.keys(currentWallet).length > 0;
+
+  return currentWalletLoaded ? (
     <div
       tabIndex={1}
       className="absolute flex flex-col bg-white opacity-0 pointer-events-none peer-focus:pointer-events-auto peer-focus:opacity-100 focus-within:pointer-events-auto focus-within:opacity-100  pt-3 top-5 left-5 w-[15rem] h-[10rem] z-10 shadow-md"
@@ -63,5 +64,5 @@ export default function WalletSetting() {
         <span className="">Remove Wallet</span>
       </button>
     </div>
-  );
+  ) : null;
 }

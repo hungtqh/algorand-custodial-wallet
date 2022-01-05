@@ -25,7 +25,7 @@ export default function QrCodeScan({ setQrCodeActive }: Props) {
     >
       <div className="bg-white w-[25rem] h-[25rem] rounded-md flex flex-col justify-around items-center">
         <h2>Wallet address</h2>
-        {currentWallet && <QrCode size={250} value={currentWallet?.address} />}
+        <QrCode size={250} value={currentWallet.address} />
       </div>
     </div>
   );

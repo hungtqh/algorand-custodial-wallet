@@ -18,17 +18,17 @@ export default function Wallet({ styles }: Props) {
   const { currentWallet } = useSelector((state: RootState) => state.customer);
 
   const handleCopyAddress = () => {
-    if (currentWallet) {
-      navigator.clipboard.writeText(currentWallet.address);
-      dispatch(pushNotification("info", "address copied to clipboard"));
-    }
+    navigator.clipboard.writeText(currentWallet.address);
+    dispatch(pushNotification("info", "address copied to clipboard"));
   };
 
   const handleQrCode = () => {
     setQrCodeActive(true);
   };
 
-  return (
+  const currentWalletLoaded = Object.keys(currentWallet).length > 0;
+
+  return currentWalletLoaded ? (
     <div
       className={`bg-gray-100 rounded-md px-2 h-[80%] flex md:w-[65%] lg:w-[60%] justify-between items-center ${styles ||
         ""}`}
@@ -37,10 +37,10 @@ export default function Wallet({ styles }: Props) {
 
       <div className="text-sm">
         <p className="text-sky-400">
-          <FontAwesomeIcon icon={faWallet} /> {currentWallet?.name}
+          <FontAwesomeIcon icon={faWallet} /> {currentWallet.name}
         </p>
         <p className="text-sky-500 w-[30vw] truncate">
-          {currentWallet?.address}
+          {currentWallet.address}
         </p>
       </div>
 
@@ -62,9 +62,9 @@ export default function Wallet({ styles }: Props) {
         <p>Balance</p>
         <p className="flex items-center gap-2">
           <span>{algo({ width: 10, height: 10 })}</span>
-          <span>{currentWallet?.balance}</span>
+          <span>{currentWallet.balance}</span>
         </p>
       </div>
     </div>
-  );
+  ) : null;
 }

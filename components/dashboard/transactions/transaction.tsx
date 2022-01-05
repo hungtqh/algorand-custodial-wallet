@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import { RootState } from "redux/store";
 import { useState } from "react";
+import DetailItem from "./detailItem";
 
 type Props = {
   id?: string;
@@ -23,7 +24,7 @@ export default function Transaction({
 
   const [detailActive, setDetailActive] = useState(false);
 
-  const isInCome = currentWallet?.address != sender;
+  const isInCome = currentWallet.address != sender;
   const d = new Date(0);
   if (time) {
     d.setUTCSeconds(time);
@@ -55,25 +56,13 @@ export default function Transaction({
         } flex flex-col  lg:flex-row   items-center justify-center lg:gap-10 w-full  bg-sky-100 transition-[height] duration-300 overflow-hidden`}
       >
         <div className="flex flex-col h-[100%] justify-around w-[92%] md:w-[80%] lg:w-min">
-          <p className="text-xs md:text-sm flex flex-col md:flex-row">
-            <span className="text-sky-900 font-bold mr-2">TxId:</span>
-            <span>{id}</span>
-          </p>
-          <p className="text-xs md:text-sm flex flex-col md:flex-row">
-            <span className="text-sky-900 font-bold mr-2">Fee:</span>
-            <span>{fee! / 10 ** 6}</span>
-          </p>
+          <DetailItem name="TxId" value={id} />
+          <DetailItem name="Fee" value={fee ? fee / 10 ** 6 : ""} />
         </div>
 
         <div className="flex flex-col  h-[100%] justify-around w-[92%] md:w-[80%] lg:w-min">
-          <p className="text-xs md:text-sm flex flex-col md:flex-row">
-            <span className="text-sky-900 font-bold mr-2">Sender:</span>
-            <span>{sender}</span>
-          </p>
-          <p className="text-xs md:text-sm flex flex-col md:flex-row">
-            <span className="text-sky-900 font-bold mr-2">Receiver:</span>
-            <span>{receiver}</span>
-          </p>
+          <DetailItem name="Sender" value={sender} />
+          <DetailItem name="Receiver" value={receiver} />
         </div>
       </div>
     </>

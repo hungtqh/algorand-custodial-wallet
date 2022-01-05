@@ -18,8 +18,10 @@ export default function Transactions() {
   );
   const dispatch = useDispatch();
 
+  const currentWalletLoaded = Object.keys(currentWallet).length > 0;
+
   useEffect(() => {
-    if (currentWallet?.address) {
+    if (currentWalletLoaded && currentWallet.address) {
       dispatch({ type: "LOADING_TRANSACTIONS" });
       dispatch(loadTransactions(currentWallet.address));
     }
@@ -27,7 +29,7 @@ export default function Transactions() {
 
   return (
     <div className="overflow-y-scroll h-[100%]">
-      {!isLoadingTransactions ? (
+      {!isLoadingTransactions && currentWalletLoaded ? (
         transactions.map((t: transactionType, index: number) => (
           <Transaction
             key={index}

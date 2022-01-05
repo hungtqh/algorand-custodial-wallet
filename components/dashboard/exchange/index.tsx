@@ -19,7 +19,9 @@ export default function Exchange() {
     dispatch(loadWallets(false));
   };
 
-  return (
+  const currentWalletLoaded = Object.keys(currentWallet).length > 0;
+
+  return currentWalletLoaded ? (
     <div>
       {sendActive && <Send setSendActive={setSendActive} />}
       {receiveActive && <Receive setReceiveActive={setReceiveActive} />}
@@ -62,5 +64,5 @@ export default function Exchange() {
 
       <hr />
     </div>
-  );
+  ) : null;
 }
