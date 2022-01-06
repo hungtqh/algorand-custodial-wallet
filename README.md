@@ -168,7 +168,7 @@ The project is not audited and should not be used in a production environment.
 
 ## License
 
-Distributed under the MIT License. See `LICENSE`
+available under the MIT license. See the `LICENSE` file for more info.
 
 
 
