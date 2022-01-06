@@ -91,16 +91,16 @@ The project is not audited and should not be used in a production environment.
 
  6. To run development server on `http://localhost:3000` run:
 
-   ```sh
-   npm run dev
-   ```
+       ```sh
+       npm run dev
+       ```
 
  7. For deployment run below commands in order:
 
-   ```sh
-   npm run build
-   npm run start
-   ```
+       ```sh
+       npm run build
+       npm run start
+       ```
 
    
 
