@@ -13,7 +13,7 @@ async function walletsRoute(req: NextApiRequest, res: NextApiResponse) {
       const user = req.session.user;
 
       if (!user) {
-        return res.status(401).end("unauthorized");
+        return res.status(200).json([]);
       }
 
       const wallets = await prisma.wallet.findMany({

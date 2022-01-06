@@ -8,7 +8,7 @@ export default function Loading({ fullScreen }: Props) {
   return (
     <div
       className={`flex justify-center items-center w-full h-full ${
-        fullScreen ? "absolute top-0 left-0 bg-white" : ""
+        fullScreen ? "absolute z-50 top-0 left-0 bg-white" : ""
       } `}
     >
       <ReactLoading
