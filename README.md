@@ -4,7 +4,8 @@
 
 ![](images/dashboard.png)
 
-UI/UX based on  [MyAlgo  Wallet](https://wallet.myalgo.com/)
+> UI/UX based on  [MyAlgo  Wallet](https://wallet.myalgo.com/)
+>
 
 
 
