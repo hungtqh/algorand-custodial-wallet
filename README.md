@@ -55,24 +55,63 @@
 
    
 
-## Usage
+## Demo
 
-Replace the contents of `README.md` with your project's:
 
-- Name
-- Description
-- Installation instructions
-- Usage instructions
-- Support instructions
-- Contributing instructions
-- Licence
 
-Feel free to remove any sections that aren't applicable to your project.
 
-## Support
 
-Please [open an issue](https://github.com/fraction/readme-boilerplate/issues/new) for support.
+### Create Wallet
 
-## Contributing
+![](images/create_wallet.gif)
 
-Please contribute using [Github Flow](https://guides.github.com/introduction/flow/). Create a branch, add commits, and [open a pull request](https://github.com/fraction/readme-boilerplate/compare/).
+
+
+
+### Copy address to clipboard
+
+![](images/copy_address.gif)
+
+
+
+
+### Delete Wallet
+
+![](images/remove_wallet.gif)
+
+
+
+
+
+### Rename Wallet
+
+![](images/rename_wallet.gif)
+
+
+
+### Get Wallet address QRCode
+
+![](images/address_qrcode.gif)
+
+
+
+### Send Algo
+
+![](images/send_algo.gif)
+
+
+
+
+
+### Receive Algo
+
+![](images/receive_algo.gif)
+
+
+
+
+
+### Change User password
+
+![](images/change_password.gif)
+
