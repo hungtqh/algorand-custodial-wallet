@@ -63,7 +63,7 @@
 
 ### Create Wallet
 
-![](images/create_wallet.gif)
+![](https://s10.gifyu.com/images/create_wallet.gif)
 
 
 
