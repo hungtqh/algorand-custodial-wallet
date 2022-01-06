@@ -8,20 +8,52 @@
 
 ## Table of Contents
 
+- [Prerequisite](#prerequisite)
+
 - [Installation](#installation)
 - [Usage](#usage)
 - [Support](#support)
 - [Contributing](#contributing)
 
+
+
+## Prerequisite
+
+
+
+
+
+
+
 ## Installation
 
-Download to your project directory, add `README.md`, and commit:
+1. Clone the progject
 
-```sh
-curl -LO http://git.io/Xy0Chg
-git add README.md
-git commit -m "Use README Boilerplate"
-```
+   ```
+   git clone git@github.com:soheil555/algorand-custodial-wallet.git
+   ```
+
+2. cd into the project directory and install dependencies
+
+   ```sh
+   cd algorand-custodial-wallet
+   npm install
+   ```
+
+3. To run development server on `http://localhost:3000` run:
+
+   ```sh
+   npm run dev
+   ```
+
+4. For deployment run below commands in order:
+
+   ```sh
+   npm run build
+   npm run start
+   ```
+
+   
 
 ## Usage
 

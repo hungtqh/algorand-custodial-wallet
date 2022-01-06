@@ -34,7 +34,7 @@ export default function Nav() {
 
       <Wallet styles="hidden md:flex" />
 
-      <button className="px-3 border-2 rounded-md">testnet</button>
+      <p className="px-3 border-2 rounded-md">AlgoWallet</p>
     </div>
   );
 }

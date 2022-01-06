@@ -24,7 +24,7 @@ export default function Notifications() {
   }, [notifications]);
 
   return show ? (
-    <div className="absolute bottom-5 right-5 w-[20rem] md:w-[25rem] lg:w-[30rem] flex justify-end">
+    <div className="absolute z-50 bottom-5 right-5 w-[20rem] md:w-[25rem] lg:w-[30rem] flex justify-end">
       <Notification
         setShow={setShow}
         type={alert.type}

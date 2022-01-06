@@ -5,12 +5,15 @@ import { RootState } from "redux/store";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCopy } from "@fortawesome/free-solid-svg-icons";
 import algo from "components/icons/algo";
+import { pushNotification } from "redux/actions/notificationsAction";
+import {useDispatch} from 'react-redux'
 
 type Props = {
   setReceiveActive: (state: boolean) => void;
 };
 
 export default function QrCodeScan({ setReceiveActive }: Props) {
+  const dispatch = useDispatch()
   const { currentWallet } = useSelector((state: RootState) => state.customer);
   const [amount, setAmount] = useState<number>(0);
 
@@ -20,6 +23,12 @@ export default function QrCodeScan({ setReceiveActive }: Props) {
     if (target.classList.contains("pop-up")) {
       setReceiveActive(false);
     }
+  };
+
+
+  const handleCopyAddress = () => {
+    navigator.clipboard.writeText(currentWallet.address);
+    dispatch(pushNotification("info", "address copied to clipboard"));
   };
 
   const handleAmount = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -42,7 +51,7 @@ export default function QrCodeScan({ setReceiveActive }: Props) {
               {currentWallet.address}
             </p>
 
-            <div className="cursor-pointer rounded-md  border-2 border-black px-2 hover:bg-black hover:text-white transition-all">
+            <div onClick={handleCopyAddress} className="cursor-pointer rounded-md  border-2 border-black px-2 hover:bg-black hover:text-white transition-all">
               <FontAwesomeIcon icon={faCopy} />
             </div>
           </div>
