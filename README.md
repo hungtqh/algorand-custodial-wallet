@@ -21,9 +21,8 @@ The project is not audited and should not be used in a production environment.
 ## Table of Contents
 
 - [Prerequisite](#prerequisite)
-
 - [Installation](#installation)
-- [Demo](#demo)
+- [Usage](#usage)
 - [License](#license)
 
 
@@ -83,7 +82,7 @@ The project is not audited and should not be used in a production environment.
 
    
 
-## Demo
+## Usage
 
 
 
