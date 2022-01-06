@@ -20,7 +20,6 @@
     "iron-session": "^6.0.4",
     "next": "12.0.7",
     "next-redux-wrapper": "^7.0.5",
-    "path": "^0.12.7",
     "qrcode.react": "^1.0.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
@@ -29,8 +28,6 @@
     "redux": "^4.1.2",
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.4.1",
-    "sodium-native": "^3.3.0",
-    "stellar-base": "^6.0.6",
     "swr": "^1.1.2-beta.0",
     "yup": "^0.32.11"
   },

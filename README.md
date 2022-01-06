@@ -1,34 +1,46 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Algorand Custodial Wallet
 
-## Getting Started
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
+![](images/dashboard.png)
+
+
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Support](#support)
+- [Contributing](#contributing)
+
+## Installation
+
+Download to your project directory, add `README.md`, and commit:
+
+```sh
+curl -LO http://git.io/Xy0Chg
+git add README.md
+git commit -m "Use README Boilerplate"
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Usage
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+Replace the contents of `README.md` with your project's:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+- Name
+- Description
+- Installation instructions
+- Usage instructions
+- Support instructions
+- Contributing instructions
+- Licence
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Feel free to remove any sections that aren't applicable to your project.
 
-## Learn More
+## Support
 
-To learn more about Next.js, take a look at the following resources:
+Please [open an issue](https://github.com/fraction/readme-boilerplate/issues/new) for support.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Contributing
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Please contribute using [Github Flow](https://guides.github.com/introduction/flow/). Create a branch, add commits, and [open a pull request](https://github.com/fraction/readme-boilerplate/compare/).
