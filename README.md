@@ -6,22 +6,33 @@
 
 
 
+
+
+# Notice
+
+The project is created for  [gitcoin Tatum Integration Celebration Bounty](https://gitcoin.co/issue/algorandfoundation/grow-algorand/122/100027180#) .
+
+The project is not audited and should not be used in a production environment.
+
+
+
+
+
 ## Table of Contents
 
 - [Prerequisite](#prerequisite)
 
 - [Installation](#installation)
-- [Usage](#usage)
-- [Support](#support)
-- [Contributing](#contributing)
+- [Demo](#demo)
+- [License](#license)
 
 
 
 ## Prerequisite
 
-
-
-
+- NodeJS
+- NPM
+- git
 
 
 
@@ -29,7 +40,7 @@
 
 1. Clone the progject
 
-   ```
+   ```sh
    git clone git@github.com:soheil555/algorand-custodial-wallet.git
    ```
 
@@ -40,13 +51,30 @@
    npm install
    ```
 
-3. To run development server on `http://localhost:3000` run:
+3. create env file
+
+   ```sh
+   cp .env.example .env.local
+   ```
+
+ 4. edit `.env.local` file and set values for:
+
+    ```sh
+    COOKIE_PRIVATE=U87bp4MH9TdF3q56js2bGQ9wDTVhDFhyepxzNRrggxkWB6YA1u #just use a random string. for user session encryption
+    TATUM_API_KEY= #get tatum API key from tatum website
+    ```
+
+​		 [sign up for Tatum API Key](https://dashboard.tatum.io/sign-up)
+
+
+
+5. To run development server on `http://localhost:3000` run:
 
    ```sh
    npm run dev
    ```
 
-4. For deployment run below commands in order:
+6. For deployment run below commands in order:
 
    ```sh
    npm run build
@@ -56,8 +84,6 @@
    
 
 ## Demo
-
-
 
 
 
@@ -114,4 +140,14 @@
 ### Change User password
 
 ![](https://s10.gifyu.com/images/change_password.gif)
+
+
+
+
+
+## License
+
+Distributed under the MIT License. See `LICENSE.md`
+
+
 
