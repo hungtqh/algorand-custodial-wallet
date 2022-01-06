@@ -56,7 +56,7 @@ async function transactionRoute(req: NextApiRequest, res: NextApiResponse) {
           }
         );
         return res.status(200).json(result.data);
-      } catch (error) {
+      } catch (error: any) {
         console.error(error);
         if (error.response) {
           const data = error.response.data;

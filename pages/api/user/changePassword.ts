@@ -27,7 +27,7 @@ async function loginRoute(req: NextApiRequest, res: NextApiResponse) {
       let data: Data;
       try {
         data = await ChangePassword.validate(body);
-      } catch (error) {
+      } catch (error: any) {
         return res.status(406).send({ error: error.message });
       }
 

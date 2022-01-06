@@ -120,7 +120,7 @@ export default function Send({ setSendActive }: Props) {
         dispatch({ type: "LOADING_TRANSACTIONS" });
         dispatch(loadTransactions(currentWallet.address));
         dispatch(pushNotification("success", "sent successfully"));
-      } catch (error) {
+      } catch (error: any) {
         if (error.response) {
           setStatus(error.response.data.error);
         }

@@ -18,8 +18,8 @@ export const loadTransactions = (walletAddress: string) => async (
       type: "FETCH_TRANSACTIONS",
       payload: { transactions },
     });
-  } catch (error) {
+  } catch (error: any) {
     console.error(error);
-    dispatch(pushNotification("error", "failed to load transactions"));
+    dispatch(pushNotification("error", "failed to load transactions") as any);
   }
 };

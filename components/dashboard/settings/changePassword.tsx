@@ -75,7 +75,7 @@ export default function ChangePassword() {
         setValues({ password: "", password_confirm: "" });
 
         dispatch(pushNotification("success", "password changed"));
-      } catch (error) {
+      } catch (error: any) {
         if (error.response) {
           setStatus(error.response.data.error);
         }

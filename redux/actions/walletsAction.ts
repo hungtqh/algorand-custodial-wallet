@@ -19,9 +19,9 @@ export const loadWallets = (setCurrent: boolean = true) => async (
     if (setCurrent) {
       currentWallet = wallets[0] || {};
     }
-  } catch (error) {
+  } catch (error: any) {
     console.error(error);
-    dispatch(pushNotification("error", "failed to load wallets"));
+    dispatch(pushNotification("error", "failed to load wallets") as any);
   }
 
   dispatch({
@@ -54,9 +54,9 @@ export const changewalletName = (id: string, newName: string) => async (
       payload: { id, newName },
     });
 
-    dispatch(pushNotification("success", "wallet name changed"));
-  } catch (error) {
+    dispatch(pushNotification("success", "wallet name changed") as any);
+  } catch (error: any) {
     console.error(error);
-    dispatch(pushNotification("error", "failed to change wallet name"));
+    dispatch(pushNotification("error", "failed to change wallet name") as any);
   }
 };

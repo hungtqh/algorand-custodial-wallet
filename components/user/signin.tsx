@@ -77,7 +77,7 @@ export default function Signin() {
           password,
         });
         mutateUser(result.data);
-      } catch (error) {
+      } catch (error: any) {
         if (error.response) {
           setStatus(error.response.data.error);
         }
