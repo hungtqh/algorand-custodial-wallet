@@ -4,7 +4,7 @@
 
 ![](images/dashboard.png)
 
-
+UI/UX based on  [MyAlgo  Wallet](https://wallet.myalgo.com/)
 
 
 
@@ -19,11 +19,21 @@ The project is not audited and should not be used in a production environment.
 
 
 ## Table of Contents
-
+- [Tech](#tech)
 - [Prerequisite](#prerequisite)
 - [Installation](#installation)
 - [Usage](#usage)
 - [License](#license)
+
+
+
+## Tech
+
+- NextJS
+- TypeScript
+- Prisma
+- SQLite
+- TailwindCSS
 
 
 
@@ -65,15 +75,24 @@ The project is not audited and should not be used in a production environment.
 
 ​		 [sign up for Tatum API Key](https://dashboard.tatum.io/sign-up)
 
+​	
 
+ 5. create database file
 
-5. To run development server on `http://localhost:3000` run:
+    ```sh
+    npx prisma db push
+    npx prisma generate
+    ```
+
+       
+
+ 6. To run development server on `http://localhost:3000` run:
 
    ```sh
    npm run dev
    ```
 
-6. For deployment run below commands in order:
+ 7. For deployment run below commands in order:
 
    ```sh
    npm run build
