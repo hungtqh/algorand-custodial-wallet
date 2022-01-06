@@ -80,7 +80,7 @@ The project is not audited and should not be used in a production environment.
 
 ​	
 
- 5. create database file
+ 5. create database and database tables
 
     ```sh
     npx prisma db push
@@ -168,7 +168,7 @@ The project is not audited and should not be used in a production environment.
 
 ## License
 
-Distributed under the MIT License. See `LICENSE.md`
+Distributed under the MIT License. See `LICENSE`
 
 
 
