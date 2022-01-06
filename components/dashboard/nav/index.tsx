@@ -3,6 +3,7 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import AlgoLogo from "components/icons/algo";
 import { useDispatch } from "react-redux";
 import Wallet from "./wallet";
+import Link from "next/link";
 
 export default function Nav() {
   const dispatch = useDispatch();
@@ -21,10 +22,14 @@ export default function Nav() {
           icon={faBars}
         />
 
-        <div className="w-9 h-9 bg-sky-500 rounded-full flex justify-center items-center">
-          <AlgoLogo fill="white" height="1.3rem" />
-        </div>
-        <p className="ml-2 text-sky-500">Wallet</p>
+        <Link href="/dashboard">
+          <div className="cursor-pointer flex items-center">
+            <div className="w-9 h-9 bg-sky-500 rounded-full flex justify-center items-center">
+              <AlgoLogo fill="white" height="1.3rem" />
+            </div>
+            <p className="ml-2 text-sky-500">Wallet</p>
+          </div>
+        </Link>
       </div>
 
       <Wallet styles="hidden md:flex" />

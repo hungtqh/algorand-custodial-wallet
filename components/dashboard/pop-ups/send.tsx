@@ -131,7 +131,7 @@ export default function Send({ setSendActive }: Props) {
   return (
     <div
       onClick={handleExit}
-      className="pop-up fixed top-0 left-0 w-full h-full z-20 bg-black bg-opacity-50 flex items-center justify-center"
+      className="pop-up fixed top-0 left-0 w-full h-full z-30 bg-black bg-opacity-50 flex items-center justify-center"
     >
       <SendAlgoForm />
     </div>
