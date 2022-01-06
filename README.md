@@ -70,14 +70,14 @@
 
 ### Copy address to clipboard
 
-![](images/copy_address.gif)
+![](https://s10.gifyu.com/images/copy_address.gif)
 
 
 
 
 ### Delete Wallet
 
-![](images/remove_wallet.gif)
+![](https://s10.gifyu.com/images/remove_wallet.gif)
 
 
 
@@ -85,19 +85,19 @@
 
 ### Rename Wallet
 
-![](images/rename_wallet.gif)
+![](https://s10.gifyu.com/images/rename_wallet.gif)
 
 
 
 ### Get Wallet address QRCode
 
-![](images/address_qrcode.gif)
+![](https://s10.gifyu.com/images/address_qrcode.gif)
 
 
 
 ### Send Algo
 
-![](images/send_algo.gif)
+![](https://s10.gifyu.com/images/send_algo.gif)
 
 
 
@@ -105,7 +105,7 @@
 
 ### Receive Algo
 
-![](images/receive_algo.gif)
+![](https://s10.gifyu.com/images/receive_algo.gif)
 
 
 
@@ -113,5 +113,5 @@
 
 ### Change User password
 
-![](images/change_password.gif)
+![](https://s10.gifyu.com/images/change_password.gif)
 
